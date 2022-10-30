@@ -1,0 +1,1 @@
+# aws-pinpoint-plugin
