@@ -1,0 +1,9 @@
+{
+  "id": "pinpointAnalytics",
+  "version": "2.3.0.0",
+  "opensearchDashboardsVersion": "2.3.0",
+  "requiredPlugins": ["opensearchDashboardsLegacy"],
+  "configPath": ["awspinpoint_analytics_plugin"],
+  "ui": true,
+  "server": true
+}

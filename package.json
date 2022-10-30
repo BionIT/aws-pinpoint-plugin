@@ -1,0 +1,15 @@
+{
+  "name": "aws-pinpoint-plugin",
+  "version": "2.3.0.0",
+  "description": "OpenSearch Dashboards PinPoint Analytics Plugin",
+  "main": "index.ts",
+  "scripts": {
+    "build": "yarn plugin-helpers build",
+    "plugin-helpers": "node ../../scripts/plugin_helpers",
+    "opensearch": "node ../../scripts/opensearch",
+    "osd": "node ../../scripts/osd"
+  },
+  "dependencies": {
+    "aws-amplify": "^4.3.42"
+  }
+}
