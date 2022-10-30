@@ -4,7 +4,7 @@ import {PinPointAnalyticsServerPlugin} from "./plugin";
 
 export const config: PluginConfigDescriptor<ConfigSchema> = {
     exposeToBrowser: {
-        trackingID: true,
+        pinpointPoolId: true,
     },
     schema: configSchema,
 };
