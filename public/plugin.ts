@@ -1,18 +1,18 @@
 import Analytics from '@aws-amplify/analytics';
 import Auth from '@aws-amplify/auth';
-import {PinPointAnalyticsPluginSetUp, PinPointAnalyticsPluginStart} from "./index";
+import { PinPointAnalyticsPluginSetUp, PinPointAnalyticsPluginStart } from "./index";
 import { Plugin, PluginInitializerContext, CoreSetup, CoreStart } from '../../../src/core/public';
-import {ConfigSchema} from "../common/config";
+import { ConfigSchema } from "../common/config";
 
 
 export class PinPointAnalyticsPlugin
     implements Plugin<PinPointAnalyticsPluginSetUp, PinPointAnalyticsPluginStart> {
     constructor(initializerContext: PluginInitializerContext<ConfigSchema>) {
-        const { pinpointPoolId } = initializerContext.config.get();
+        const { pinpointPoolId, appClientId, region } = initializerContext.config.get();
         const amplifyConfig = {
             Auth: {
                 identityPoolId: pinpointPoolId,
-                region: 'us-east-1'
+                region
             }
         }
         //Initialize Amplify
@@ -21,9 +21,9 @@ export class PinPointAnalyticsPlugin
         const analyticsConfig = {
             AWSPinpoint: {
                 // Amazon Pinpoint App Client ID
-                appId: 'd163093c6971474fa71110a69f64ee6f',
+                appId: appClientId,
                 // Amazon service region
-                region: 'us-east-1',
+                region,
                 mandatorySignIn: false,
             }
         }
@@ -32,16 +32,7 @@ export class PinPointAnalyticsPlugin
     }
 
     public setup(core: CoreSetup):PinPointAnalyticsPluginSetUp {
-        //Record an event
-        Analytics.record('some-event-name');
-
-       //Record a custom event
-        Analytics.record({
-            name: 'Album',
-            attributes: {genre: 'Rock', year: '1989'}
-        });
-
-        Analytics.autoTrack('pageView', {enable: true});
+        Analytics.autoTrack('pageView', {enable: true, type: 'SPA'});
 
         return {};
     }

@@ -1,10 +1,12 @@
 import {configSchema, ConfigSchema} from "../common/config";
 import { PluginConfigDescriptor, PluginInitializerContext } from 'opensearch-dashboards/server';
-import {PinPointAnalyticsServerPlugin} from "./plugin";
+import { PinPointAnalyticsServerPlugin } from "./plugin";
 
 export const config: PluginConfigDescriptor<ConfigSchema> = {
     exposeToBrowser: {
         pinpointPoolId: true,
+        appClientId: true,
+        region: true
     },
     schema: configSchema,
 };
