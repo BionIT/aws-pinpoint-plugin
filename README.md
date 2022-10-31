@@ -14,9 +14,9 @@ This plugin enabled 2 configurations for OpenSearch Dashboards
 - inside plugins folder, run `nvm use && yarn install`
 - inside plugins folder, run `yarn build —opensearch-dashboards-version=<version name>`
 - update necessary configs inside config/opensearch_dashboards.yml, this yml file will replace the one in the official image for local experiment
-- run `docker-compose up -d`
+- run `docker-compose up -d`, and if you encounter error in docker authentication, please run `docker login`
 - go to http://0.0.0.0:5601/app/home#/ and enter credentials to login, and if you already set up Pinpoint Analytics, you will see traffic data started coming in
-  2.Use zip file in production
+2. Use zip file in production
 - follow step 1 to build the plugin inside the plugin folder
 - find the built artifact zipped inside build folder
 
